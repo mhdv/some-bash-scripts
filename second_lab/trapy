@@ -1,0 +1,7 @@
+#!/bin/bash
+trap 'echo "Nie mozna wylaczyc ctrl+C"' SIGINT
+trap 'echo "Mozna wylaczyc ctrl+C"; trap - SIGINT' SIGHUP
+while : ; do
+  echo "Naciśnij ctrl+C aby wyjść"
+  sleep 5
+done

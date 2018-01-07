@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+echo $$
+echo $PPID
+./s3

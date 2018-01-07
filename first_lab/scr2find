@@ -1,0 +1,13 @@
+#!/bin/bash
+OUTPUT="$(find *.$1 -mtime -$2)"
+i=0;
+while read -r line
+do
+	filename[i]="$line";
+	let "i=i+1";
+done <<< "${OUTPUT}"
+tar -c -f $3.tar "${filename[0]}"
+for (( i=1; i<"${#filename[*]}"; i++ ))
+do
+	tar -rvf $3.tar "${filename[i]}"
+done

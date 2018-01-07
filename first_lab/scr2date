@@ -1,0 +1,10 @@
+#!/bin/bash
+LC_ALL=C;
+weekday=$(date +%w);
+if [ $weekday -lt 6 ];
+	then
+	echo "It's normal working day."
+else
+	echo "It's WEEKEND!"
+fi
+date "+DATE: %m/%d/%y%nTIME: %H:%M:%S";

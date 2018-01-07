@@ -1,0 +1,20 @@
+#!/bin/bash
+i=0;
+while read -r line
+do
+	mailadress="$line";
+	adresy[i]="$mailadress";
+	let "i=i+1";
+done < "adresy.txt"
+i=0;
+while read -r line
+do
+	mailtxt="$line";
+	tresc[i]="$mailtxt";
+	let "i=i+1";
+done < "tresc.txt"
+i=0;
+for (( i=0; i<${#adresy[*]}; i++ ))
+do
+	mutt -s "Temat" -a /home/mehow/Projects/SCR/spec*.pdf -- "${adresy[i]}" <<< "${tresc[i]}";
+done
